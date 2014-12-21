@@ -1,0 +1,153 @@
+% -*- TeX-engine: xetex -*-
+% \documentclass[14pt,a4paper]{scrartcl}
+\documentclass[13pt,a4paper]{scrartcl}
+\usepackage{scrpage2}
+\pagestyle{scrplain}
+\pagenumbering{gobble}
+
+\usepackage{Alegreya}
+\usepackage{AlegreyaSans}
+
+% \usepackage{merriweather}
+% \usepackage{fontspec}
+% \setmonofont[Scale=MatchLowercase,Mapping=tex-text]{Source Code Pro}
+
+% for 0.5cm margins
+\usepackage[left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
+
+\usepackage[svgnames,hyperref]{xcolor}
+\usepackage{url}
+\usepackage{graphicx}
+
+% \usepackage[cm]{fullpage}
+
+\usepackage{rotating}
+\usepackage{tabulary}
+\usepackage{booktabs}
+
+\usepackage{paralist}
+
+\usepackage{enumitem}
+
+% monokai code listings
+
+% \usepackage{minted}
+% \definecolor{bg}{rgb}{0.95,0.95,0.95}
+% \newminted{scheme}{bgcolor=bg,fontsize=\footnotesize}
+
+\usepackage[%
+backend=biber,
+style=numeric-comp,
+maxbibnames=10,
+sorting=none,
+sortcites=true,
+url=true,
+doi=true
+% refsegment=chapter,
+% ibidtracker=strict
+]{biblatex}
+
+% small references
+\renewcommand{\bibfont}{\normalfont\small}
+
+% \AtEveryBibitem{\clearfield{month}}
+% \AtEveryCitekey{\clearfield{month}}
+
+\addbibresource{dp-2016.bib}
+
+\usepackage[english=british,threshold=15,thresholdtype=words]{csquotes}
+\SetCiteCommand{\parencite}
+
+\usepackage[%
+unicode=true,
+hyperindex=true,
+bookmarks=true,
+colorlinks=true, % change to false for final
+pdfborder=0,
+allcolors=DarkBlue,
+% plainpages=false,
+pdfpagelabels,
+hyperfootnotes=true]{hyperref}
+
+\author{Ben Swift, Henry Gardner, John Grundy, Andrew Sorensen}
+\date{\today}
+\title{DP '16 Application}
+
+% hyphenation
+\hyphenation{ARC}
+
+\renewcommand{\thesection}{\Alph{section}}
+
+\begin{document}
+
+\setcounter{section}{3} % C1.
+\subsection{Project Description}
+\label{sec:project-description}
+% (Please upload a Project Description as detailed in the Instructions
+% to Applicants in no more than 10 A4 pages and in the required
+% format. Please refer to the Instructions to Applicants for detailed
+% instructions on the required content and format of the Project
+% Description.)
+
+
+
+\setcounter{section}{5} % E1.
+\setcounter{subsection}{0}
+\subsection{Justification of funding requested from the ARC for the
+  duration of the Project}
+\label{sec:funding-justification}
+% (In no more than 5 A4 pages and within the required format fully
+% justify, in terms of need and cost, each budget item requested from
+% the ARC. Use the same headings as in the Description column in the
+% budget at Part D of this Proposal. )
+
+
+
+% E2.
+\subsection{Details of non-ARC contributions}
+\label{sec:non-arc-contributions}
+% (In no more than 2 A4 pages and within the required format, provide
+% an explanation of how non-ARC contributions will support the
+% proposed Project. Use the same headings as in the Description column
+% in the budget at Part D of this Proposal. )
+
+
+\setcounter{section}{6}
+\setcounter{subsection}{11} % F12. 
+\subsection{Research Opportunity and Performance Evidence (ROPE) - Recent
+  significant research outputs and ARC grants (since 2005)}
+\label{sec:recent-significant-outputs}
+% (Please attach a PDF with a list of your recent significant research
+% outputs and ARC grants most relevant to this Proposal (20 pages
+% maximum). Please refer to the Instructions to Applicants for the
+% required content and formatting.)
+
+
+
+% F13. 
+\subsection{Research Opportunity and Performance Evidence (ROPE) - Ten
+  career-best research outputs}
+\label{sec:ten-best-outputs}
+% (Please attach a PDF with a list of your 10 career-best research
+% outputs, with a brief paragraph for each output explaining its
+% significance (5 pages maximum). Please refer to the Instructions to
+% Applicants for the required content and formatting.)
+
+
+
+\setcounter{section}{7} % G1. 
+\setcounter{subsection}{0}
+\subsection{Research support from sources other than the ARC}
+\label{sec:other-research-support}
+% (For all participants on this Proposal, please provide details of
+% research funding from sources other than the ARC (in Australia and
+% overseas) for the years 2014 to 2018 inclusive. That is, list all
+% Projects/Proposals/Fellowships awarded or requests submitted for
+% funding involving the Proposal participants. Please refer to the
+% Instructions to Applicants for submission requirements.)
+
+
+
+\printbibliography[title=References]
+
+\end{document}
