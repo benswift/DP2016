@@ -1,39 +1,23 @@
-% -*- TeX-engine: xetex -*-
-% \documentclass[14pt,a4paper]{scrartcl}
-\documentclass[13pt,a4paper]{scrartcl}
-\usepackage{scrpage2}
-\pagestyle{scrplain}
+\documentclass[14pt,a4paper]{scrartcl}
+% \documentclass[12pt,a4paper]{article}
 \pagenumbering{gobble}
 
-\usepackage{Alegreya}
-\usepackage{AlegreyaSans}
-
-% \usepackage{merriweather}
-% \usepackage{fontspec}
-% \setmonofont[Scale=MatchLowercase,Mapping=tex-text]{Source Code Pro}
-
 % for 0.5cm margins
-\usepackage[left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
+% \usepackage[left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
+
+\usepackage{libertine}
 
 \usepackage[svgnames,hyperref]{xcolor}
 \usepackage{url}
 \usepackage{graphicx}
 
-% \usepackage[cm]{fullpage}
-
-\usepackage{rotating}
 \usepackage{tabulary}
 \usepackage{booktabs}
 
-\usepackage{paralist}
-
-\usepackage{enumitem}
+% \usepackage{paralist}
+% \usepackage{enumitem}
 
 % monokai code listings
-
-% \usepackage{minted}
-% \definecolor{bg}{rgb}{0.95,0.95,0.95}
-% \newminted{scheme}{bgcolor=bg,fontsize=\footnotesize}
 
 \usepackage[%
 backend=biber,
@@ -76,9 +60,9 @@ hyperfootnotes=true]{hyperref}
 % hyphenation
 \hyphenation{ARC}
 
-\renewcommand{\thesection}{\Alph{section}}
-
 \begin{document}
+
+\renewcommand{\thesection}{\Alph{section}}
 
 \setcounter{section}{3} % C1.
 \subsection{Project Description}
@@ -89,7 +73,7 @@ hyperfootnotes=true]{hyperref}
 % instructions on the required content and format of the Project
 % Description.)
 
-
+Here is some text.
 
 \setcounter{section}{5} % E1.
 \setcounter{subsection}{0}
@@ -114,8 +98,8 @@ hyperfootnotes=true]{hyperref}
 
 \setcounter{section}{6}
 \setcounter{subsection}{11} % F12. 
-\subsection{Research Opportunity and Performance Evidence (ROPE) - Recent
-  significant research outputs and ARC grants (since 2005)}
+\subsection{Research Opportunity and Performance Evidence (ROPE)\\
+  Recent significant research outputs and ARC grants (since 2005)}
 \label{sec:recent-significant-outputs}
 % (Please attach a PDF with a list of your recent significant research
 % outputs and ARC grants most relevant to this Proposal (20 pages
@@ -125,8 +109,8 @@ hyperfootnotes=true]{hyperref}
 
 
 % F13. 
-\subsection{Research Opportunity and Performance Evidence (ROPE) - Ten
-  career-best research outputs}
+\subsection{Research Opportunity and Performance Evidence (ROPE)\\
+  Ten career-best research outputs}
 \label{sec:ten-best-outputs}
 % (Please attach a PDF with a list of your 10 career-best research
 % outputs, with a brief paragraph for each output explaining its
