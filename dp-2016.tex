@@ -1,4 +1,5 @@
-\documentclass[14pt,a4paper]{scrartcl}
+% -*- TeX-engine: xetex -*-
+\documentclass[a4paper]{scrartcl}
 % \documentclass[12pt,a4paper]{article}
 \pagenumbering{gobble}
 
@@ -73,8 +74,95 @@ hyperfootnotes=true]{hyperref}
 % instructions on the required content and format of the Project
 % Description.)
 
-Here is some text.
+\subsubsection*{PROJECT TITLE}
 
+\subsubsection*{AIMS AND BACKGROUND}
+
+The modern world is saturated with computing power, with contemporary
+smart phones outperforming the original Cray~1 supercomputer by three
+orders of magnitude. Access to the world's fastest supercomputing
+systems has never been easier and business users are now routinely
+hiring supercomputing time on cloud-based systems.
+
+Modern computing devices are also spectacularly interactive enabling
+users to slide, tap, watch, speak, listen with real-time feedback. The
+benefits of interactivity in programming (while long espoused by lisp
+programmers) have also gained more widespread acceptance, through
+Agile\parencite{Fowler2001} and eXtreme\parencite{Beck1999}
+programming practices, and the emerging field of live
+programming\parencite{Swift2013b}.
+
+But is all of this power, interactivity and networked connectivity
+working together to tackle cutting-edge computing challenges of the
+21st century? Consider the following scenarios:
+\begin{enumerate}
+\item A computational physicist submits a job to the (such and
+  such) supercomputer which takes 3 weeks to execute. During
+  subsequent data analysis, it is found that there was a bug in the
+  specifications of 3 parameters out of 200 in the input deck for this
+  simulation.
+
+\item A bioinformatics researcher trawls through millions of generated
+  phylogenic candidates in order to match and develop evolutionary
+  trees. A subsequent analysis of the results finds that the stopping
+  criteria were satisfied after only the first hundered such files had
+  been compared.
+
+\item The data generated in a HPC simulation is so large that it
+  cannot be moved and needs to be analysed in-situ across one million
+  cores only a few of which will contain interesting simulation data.
+  The tool used to find the important cores misses details at the
+  finest scales.
+\end{enumerate}
+
+Due to a combination of technical and social factors, scientific
+computing is still largely a batch-compile-run-analyse workflow, and
+although there have been calls for more
+interactivity\parencite{Gil2007} support for this workflow is very
+limited at present\parencite{Mattoso}.
+
+The aim of this project is to bring human-in-the-loop interactivity to
+high-performance scientific computing (HPSC), enabling scientists and
+programmers to be more productive and take better advantage of the
+modern computing landscape to do good science.
+
+\subsubsection*{RESEARCH PROJECT}
+
+\parencite{Mattoso}
+
+\begin{itemize}
+\item increased \textbf{interactivity} in software/programming
+  environments, with all the associated benefits to programmer
+  productivity and effectiveness; and
+\item 
+\end{itemize}
+
+Computational steering: how's that working out for you?
+
+
+\subsubsection*{ROLE OF PERSONNEL}
+
+
+
+\subsubsection*{RESEARCH ENVIRONMENT}
+
+
+
+\subsubsection*{COMMUNICATION OF RESULTS}
+
+reproducable code/software artefacts
+
+\subsubsection*{MANAGEMENT OF DATA}
+
+Data provenance, reproducibility
+
+\subsubsection*{REFERENCES}
+
+\vskip -2em % filthy hack to get the spacing right
+
+\printbibliography[title=\ ]
+
+\newpage
 \setcounter{section}{5} % E1.
 \setcounter{subsection}{0}
 \subsection{Justification of funding requested from the ARC for the
@@ -87,6 +175,7 @@ Here is some text.
 
 
 
+\newpage
 % E2.
 \subsection{Details of non-ARC contributions}
 \label{sec:non-arc-contributions}
@@ -96,6 +185,7 @@ Here is some text.
 % in the budget at Part D of this Proposal. )
 
 
+\newpage
 \setcounter{section}{6}
 \setcounter{subsection}{11} % F12. 
 \subsection{Research Opportunity and Performance Evidence (ROPE)\\
@@ -108,6 +198,7 @@ Here is some text.
 
 
 
+\newpage
 % F13. 
 \subsection{Research Opportunity and Performance Evidence (ROPE)\\
   Ten career-best research outputs}
@@ -119,6 +210,7 @@ Here is some text.
 
 
 
+\newpage
 \setcounter{section}{7} % G1. 
 \setcounter{subsection}{0}
 \subsection{Research support from sources other than the ARC}
@@ -129,9 +221,5 @@ Here is some text.
 % Projects/Proposals/Fellowships awarded or requests submitted for
 % funding involving the Proposal participants. Please refer to the
 % Instructions to Applicants for submission requirements.)
-
-
-
-\printbibliography[title=References]
 
 \end{document}
