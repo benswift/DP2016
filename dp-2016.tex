@@ -76,8 +76,14 @@ hyperfootnotes=true]{hyperref}
 
 \subsubsection*{PROJECT TITLE}
 
-\textbf{Live <domain-specific> visual programming for complex data
-  analytics software}
+A few options:
+
+\begin{enumerate}
+\item \textbf{Live <domain-specific> visual programming for complex
+    data analytics software}
+\item \textbf{Bringing interactivity to high-performance scientific
+    computing}
+\end{enumerate}
 
 \subsubsection*{AIMS AND BACKGROUND}
 
@@ -85,60 +91,78 @@ hyperfootnotes=true]{hyperref}
 
 The modern world is saturated with computing power, with contemporary
 smart phones outperforming the original Cray~1 supercomputer by three
-orders of magnitude. Access to the world's fastest supercomputing
-systems has never been easier and business users are now routinely
-hiring supercomputing time on cloud-based systems.
+orders of magnitude. Advances in network connectivity and bandwidth
+have also made it easier to harness remote computing power---giving
+rise to the almost limitless potential of the ``cloud'' for processing
+and storing data from anywhere in the world. In short, accessing
+supercomputer-level \textbf{performance} has never been easier.
 
-Modern computing devices are also spectacularly interactive enabling
-users to slide, tap, watch, speak, listen with real-time feedback. The
-benefits of interactivity in programming (while long espoused by lisp
-programmers) have also gained more widespread acceptance, through
-Agile\parencite{Fowler2001} and eXtreme\parencite{Beck1999}
-programming practices, and the emerging field of live
-programming\parencite{Swift2013b}.
+Modern computing devices are also spectacularly \textbf{interactive},
+enabling users to slide, tap, watch, speak, listen with real-time
+feedback. The benefits of interactivity in programming (while long
+espoused by lisp programmers) have in more recent times gained more
+widespread acceptance, through Agile\parencite{Fowler2001} and
+eXtreme\parencite{Beck1999} programming practices, and the emerging
+field of live programming\parencite{Swift2013b}.
 
 But is all of this power, interactivity and networked connectivity
 working together to tackle cutting-edge computing challenges of the
 21st century? Consider the following scenarios:
 \begin{enumerate}
-\item A computational physicist submits a job to the (such and
-  such) supercomputer which takes 3 weeks to execute. During
-  subsequent data analysis, it is found that there was a bug in the
-  specifications of 3 parameters out of 200 in the input deck for this
-  simulation.
+\item A computational physicist submits a job to the supercomputer
+  which takes 3 weeks to execute. During subsequent data analysis, it
+  she discovers that there was an incompatibility in the
+  specifications of 2 parameters (out of 200) in the input deck for
+  this simulation, which caused the computation to fail to converge.
+  The convergence issue is clearly visible in even a text-only dump of
+  high-level simulation quantities at each timestep.
 
-\item A bioinformatics researcher trawls through millions of generated
-  phylogenic candidates in order to match and develop evolutionary
-  trees. A subsequent analysis of the results finds that the stopping
-  criteria were satisfied after only the first hundered such files had
-  been compared.
+% \item a bioinformatics researcher trawls through millions of generated
+%   phylogenic candidates in order to match and develop evolutionary
+%   trees. A subsequent analysis of the results finds that the stopping
+%   criteria were satisfied after only the first hundered such files had
+%   been compared.
 
-\item The data generated in a HPC simulation is so large that it
-  cannot be moved and needs to be analysed in-situ across one million
-  cores only a few of which will contain interesting simulation data.
-  The tool used to find the important cores misses details at the
-  finest scales.
+\item A team of SES personnel are monitoring a real-time satellite
+  feed of a bushfire which is hours away from threatening homes and
+  lives. A computational simulation of the bushfire is being performed
+  to predict the future progress of the firefront, but over time the
+  simulation gives unreliable results---the SES experts deduce that
+  the model is underestimating the fuel load in the region. The change
+  to the model to account for the increased fuel load is not a complex
+  one, but the simulation system has not been designed to allow such
+  changes while the simulation is running, and restarting the system
+  with an updated model takes more time than is anticipated before the
+  firefront reaches the housing line.
+
+\item A growing hi-tech manufacturing company has historically relied
+  on managing their supply chain by hand. However, as the company
+  grows and the number of supplier relationships increases this is no
+  longer feasible. A purely automated approach generates suboptimal
+  results, because the supply chain involves a complex network of
+  human relationships and hand-shake agreements between the suppliers.
+  The expert team can see subtle problems with the results (and
+  appropriate subtle corrections) as the automated model is running,
+  but are prevented by the software from effecting these changes until
+  the model has finished running.
 \end{enumerate}
 
-Due to a combination of technical and social factors, scientific
-computing is still largely a batch-compile-run-analyse workflow, and
-although there have been calls for more
-interactivity\parencite{Gil2007} support for this workflow is very
-limited at present\parencite{Mattoso}.
+These scenarios, and many others, could benefit from a tighter
+coupling between the human researchers and their data analytics
+software \emph{at run time}. Such enhanced human-in-the-loop (HIL)
+workflows are now possible in ways that been hitherto unimaginable.
 
 The aim of this project is to bring human-in-the-loop interactivity to
-high-performance scientific computing (HPSC), enabling scientists and
-programmers to be more productive and take better advantage of the
-modern computing landscape to do good science.
-
-\paragraph{Background}
+complex data analysis software workflows, enabling scientists,
+programmers and domain experts to take gain new insights into data and
+take better advantage of the modern computing and data landscape.
 
 % \begin{itemize}
 % \item in a data-centric world, we need lots of big data-oriented
 %   software incl data processing and visualisation
 % \item current techniques include BI software, data mining/machine
 %   learning software, scientific software, social media analysis
-%   software, \ldots
+%   software \ldots
 % \item sorts of things we want to answer include compute behaviours of
 %   new materials (science); find important trends (business); learn
 %   about phenomenon (social sciences); discover relationships
@@ -153,31 +177,36 @@ modern computing landscape to do good science.
 %   feedback to users
 % \end{itemize}
 
-% Want to bring the idea of "liveness" to HPC/big data software – allow
-% developers to get rapid, incremental update of target data process
-% algs ; allow developers to get near-instantaneous feedback on input of
-% changes to outputs data via rich visualisations
+\paragraph{Background}
 
-% Want to leverage domain-specific visual languages to specify these big
-% data analysis problems to enable end users a high-level, controlled
-% environment c.f. R-type scripting, code, BI configs etc
 
-% Want to leverage rich information visualisations to provide small
-% snapshot and overall output understanding by end users
+Although there are some disagreements about what exactly constitutes
+``Big Data''\parencite{TODO}, there are clearly opportunities to 
 
-% % << Worth a big picture "concept diagram" here >>
+revolution is gathering steam, despite the 
 
-% The aim of this project is thus to invent a new approach to specifying
-% and realizing data-centric software systems using live visual
-% programming and data visualisation we break into specific aims:
 
-% - SDL++ for data analytics
-% - Live visual programming of data analytics - DSVLs
-% - extempore -> live update of GPU/HPC/IR/ML algs etc
-% - live visualisations of complex data analytics alg data for feedback,
-%   output
-% - evaluate effectiveness by apply to several exemplars e.g. particles,
-%   big data analysis, infoVis...
+
+In 2007, Gil et~al. \parencite{Gil2007} outlined several outstanding
+challenges in scientific computation and data analysis. These included data
+provenance (where data comes from), reproducibility and shareability
+of complex data processing software pipelines, and the need for dyna
+
+Due to a combination of technical and social factors, scientific
+computing is still largely a batch-compile-run-analyse workflow, and
+although there have been calls for more
+interactivity\parencite{Gil2007} support for this workflow is very
+limited at present\parencite{Mattoso}.
+
+Different mobs are already coming at this problem from different angles
+
+Scientific workflows
+
+EUP/DSVL
+
+Interactive programming/steering
+
+Workflows: bottom-up, or top-down?
 
 % BACKGROUND
 
@@ -193,58 +222,77 @@ modern computing landscape to do good science.
 
 \subsubsection*{RESEARCH PROJECT}
 
-\parencite{Mattoso}
-
-\begin{itemize}
-\item increased \textbf{interactivity} in software/programming
-  environments, with all the associated benefits to programmer
-  productivity and effectiveness; and
-\item 
-\end{itemize}
-
 Computational steering: how's that working out for you?
 
+% Want to bring the idea of "liveness" to HPC/big data software – allow
+% developers to get rapid, incremental update of target data process
+% algs ; allow developers to get near-instantaneous feedback on input of
+% changes to outputs data via rich visualisations
+
+% Want to leverage domain-specific visual languages to specify these big
+% data analysis problems to enable end users a high-level, controlled
+% environment c.f. R-type scripting, code, BI configs etc
+
+% Want to leverage rich information visualisations to provide small
+% snapshot and overall output understanding by end users
+
+% << Worth a big picture "concept diagram" here >>
+
+% The aim of this project is thus to invent a new approach to specifying
+% and realizing data-centric software systems using live visual
+% programming and data visualisation we break into specific aims:
+
+% - SDL++ for data analytics
+% - Live visual programming of data analytics - DSVLs
+% - extempore -> live update of GPU/HPC/IR/ML algs etc
+% - live visualisations of complex data analytics alg data for feedback,
+%   output
+% - evaluate effectiveness by apply to several exemplars e.g. particles,
+%   big data analysis, infoVis...
 
 \paragraph{Research significance}
 
-% Big data software, HPC software becoming massively important
-% Development of both still rudimentary, limited Little use of
-% "liveness" concept in HPC/DSVLs to date (some in InfoVis) Many
-% applications of our approach ; very enabling technology Examples might
-% include\ldots
+Big data software, HPC software becoming massively important
+Development of both still rudimentary, limited use of "liveness"
+concept in HPC/DSVLs to date (some in InfoVis). Many applications of
+our approach; a very enabling technology. Examples might include\ldots
 
 \paragraph{Advancing the knowledge base with innovation}
 
-% - very limited use of "liveness" concept to date in BI, HPC, etc ;
-%   adding into these very novel
-% - limited DSVLs leveraged to date in these domains ; enables end users
-% - InfoVis well studied but specification low-level, limited ; enables
-%   greater generality
-% - running the concept of "liveness" through these: DSVLs <-> HPC/Big
-%   Data code <-> InfoVis
-
+\begin{itemize}
+\item very limited use of "liveness" concept to date in BI, HPC, etc ;
+  adding into these very novel
+\item limited DSVLs leveraged to date in these domains ; enables end
+  users
+\item InfoVis well studied but specification low-level, limited ;
+  enables greater generality
+\item running the concept of "liveness" through these: DSVLs <->
+  HPC/Big Data code <-> InfoVis
+\end{itemize}
 \paragraph{Conceptual framework}
 
-% Series of research problems to be solved
+explore \rightarrow enliven \rightarrow empower
 
-% 1. Add ability to modify HPC/Big Data code while running – "liveness"
+Series of research problems to be solved:
 
-% 2. Invent set of DSVLs for specifying such applications
-
-% 3. Use DSVLs to generate code / modify code (via 2, 1 above)
-
-% 4. Specifying rich, live InfoVis solution for data processed (by 1 above)
-
-% 5. Evaluate effectivess on set of exemplars
+\begin{enumerate}
+\item Add ability to modify HPC/Big Data code while
+  running---"liveness"
+\item Invent set of DSVLs for specifying such applications
+\item Use DSVLs to generate code / modify code (via 2, 1 above)
+\item Specifying rich, live InfoVis solution for data processed (by 1
+  above)
+\item Evaluate effectivess on set of exemplars
+\end{enumerate}
 
 \paragraph{Feasibility, methodology and timeline}
 
 % -set of steps
 % -set of prototype interations
+
 % Work per quarter
 
 \paragraph{Outcomes and impact}
-
 
 
 
