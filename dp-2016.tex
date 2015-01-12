@@ -38,7 +38,7 @@ doi=true
 % \AtEveryBibitem{\clearfield{month}}
 % \AtEveryCitekey{\clearfield{month}}
 
-\addbibresource{dp-2016.bib}
+% \addbibresource{dp-2016.bib}
 \addbibresource{ben-papers.bib}
 
 \usepackage[english=british,threshold=15,thresholdtype=words]{csquotes}
@@ -88,15 +88,19 @@ A few options:
 
 \subsubsection*{AIMS AND BACKGROUND}
 
-\paragraph{Aims}
+\paragraph*{Aims}
 
 The modern world is saturated with computing power, with contemporary
 smart phones outperforming the original Cray~1 supercomputer by three
 orders of magnitude. Advances in network connectivity and bandwidth
 have also made it easier to harness remote computing power---giving
 rise to the almost limitless potential of the ``cloud'' for processing
-and storing data from anywhere in the world. In short, accessing
-supercomputer-level \textbf{performance} has never been easier.
+and storing data from anywhere in the world. Accessing
+supercomputer-level \textbf{performance} has never been easier and,
+when combined with machine learning\cite{Hastie2009} and big
+data\cite{Manyika2011}, this performance has the potential to provide
+answers to deep questions in science, business and even the
+humanities.
 
 Modern computing devices are also spectacularly \textbf{interactive},
 enabling users to slide, tap, watch, speak, listen with real-time
@@ -178,36 +182,103 @@ take better advantage of the modern computing and data landscape.
 %   feedback to users
 % \end{itemize}
 
-\paragraph{Background}
-
-
-Although there are some disagreements about what exactly constitutes
-``Big Data''\parencite{TODO}, there are clearly opportunities to 
-
-revolution is gathering steam, despite the 
-
-
-
-In 2007, Gil et~al. \parencite{Gil2007} outlined several outstanding
-challenges in scientific computation and data analysis. These included data
-provenance (where data comes from), reproducibility and shareability
-of complex data processing software pipelines, and the need for dyna
+\paragraph*{Background}
 
 Due to a combination of technical and social factors, scientific
-computing is still largely a batch-compile-run-analyse workflow, and
-although there have been calls for more
-interactivity\parencite{Gil2007} support for this workflow is very
-limited at present\parencite{Mattoso}.
+computing is still often performed in a batch
+\emph{compile-run-analyse} style. In 2007, a National Science
+Foundation workshop\parencite{Gil2007} outlined several outstanding
+challenges in scientific computation and data analysis. These included
+data provenance (where data comes from\cite{McPhillips2009}),
+reproducibility and shareability of complex data processing software
+pipelines, and the need for dynamic interactivity in these workflows.
 
-Different mobs are already coming at this problem from different angles
+A key part of the solution to these problems is the development of
+Scientific Workflow Management Systems\parencite{Deelman} (SWfMS):
+tools for managing the data dependencies, the processing steps and the
+computational resources required to perform a complete analysis for a
+given problem. Instead of an ad-hoc collection of script files,
+compute binaries and inaccessible data stores, a SWfMS allows the
+complete set of conditions required to perform the analysis to be
+captured in an unambiguous way, allowing the same (or derived)
+analyses to be performed by other groups (or the same group at a later
+time, or with new data) to allow for better sharing of knowledge and
+greater confidence in the results.
 
-Scientific workflows
+In a more recent (2014) review of the field, ``Dynamic steering of HPC
+scientific workflows: A survey''\parencite{Mattoso}, Mattoso et~al.
+attempt to map out the current SWfMS landscape in regard to dynamic
+workflow steering (the ability to view and modify a running
+computational process in real time). They identified six key areas of
+interaction/steering:
+\begin{enumerate}
+\item \textbf{monitoring}: the ability to monitor intermediate
+  quantities of interest (e.g. total energy)
+\item \textbf{analysis}: the ability to perform analysis of simulation
+  quantities (e.g. viewing a live histogram of the energy
+  distribution)
+\item \textbf{adaptation}: the ability to adapt/modify the running
+  simulation
+\item \textbf{notification}: the ability of the system to alert users of the
+  need/opportunity to interfere
+\item \textbf{interface for interaction}: the interface (either command-based
+  or GUI) presented to the user to monitor and adapt the computation
+\item \textbf{computing model}: the ability to tailor the types of interaction
+  depending on the compute model in use (e.g. providing full
+  monitoring when running locally on a workstation vs only statistical
+  sampling when the job is distributed over a cluster)
+\end{enumerate}
+At the end of their survey, Mattoso et~al. present some open
+challenges for dynamic steering in scientific computing workflows.
+Specifically, the \emph{analysis} and \emph{adaptation} branches of
+their taxonomy are not well addressed by current SWfMS.
 
-EUP/DSVL
+In terms of real-time analysis, the open challenges are:
+\begin{itemize}
+\item \textbf{in-situ analysis}: modern terascale compute
+  infrastructure is often IO-bound, and HPC applications must minimize
+  inter-node communication to achieve efficient use of the hardware.
+  As a result, it is often unfeasible to move the data of interest
+  back to a central node for processing and analysis, so any such
+  analysis must be performed in-situ\cite{Bennett2012} on the compute
+  node itself.
+\item \textbf{Decision-support tools}: giving a user the
+  \emph{ability} to interfere with a running computational process is
+  one thing---knowing \emph{when and how} to interfere is another
+  thing altogether. Dynamic SWfMS must provide as useful real-time
+  feedback to the user (a domain expert) to assist them in deciding
+  when and how to interfere. This problem is an example of a more
+  general end-user programming (EUP)\cite{Myers2006} problem---giving
+  domain experts the appropriate tools to transfer their domain
+  expertise into the computational domain.
+\end{itemize}
+In the area of adaptation, the open challenges are:
+\begin{itemize}
+\item \textbf{dynamic workflow engines}: most of the surveyed systems
+  allowed the user to adapt the computation at a high level (e.g.
+  add/delete subtasks). However, there was much less support for
+  modifying the evolution of specific tasks (e.g. swapping out
+  low-level algorithms and tight-loops in computation). This level of
+  adaptivity would allow for even more steering possibilities, but may
+  exacerbate the problem of deciding when/how to interfere (although
+  support for rolling back interventions would be helpful here).
+\item \textbf{parameter slice exploration}: many scientific problems
+  involve searching high-dimensional parameter spaces for optimal
+  parameter configurations, and many algorithms exist for this task.
+  However, there are some problems (e.g. buisness informatics) where
+  cost/loss functions are hard to articulate, and more traditional
+  purely numerical optimization approaches tend to overfit or get
+  stuck in local maxima. In these situations an expert domain user, if
+  presented with appropriate feedback in real-time, may be able to
+  recognise these type of convergence problems early on, and perform
+  appropriate algorithmic and parameter adaptations to avoid the
+  problem.
+\end{itemize}
 
-Interactive programming/steering
-
-Workflows: bottom-up, or top-down?
+\textbf{Note to readers:} there is lots of related work which has not
+been covered, e.g. the benefits of interactive (or live) programming
+more generally, plus the literature on computational steering, and the
+EUP/VL literature. Will put that stuff in as the document develops.
 
 % BACKGROUND
 
@@ -223,7 +294,26 @@ Workflows: bottom-up, or top-down?
 
 \subsubsection*{RESEARCH PROJECT}
 
-Computational steering: how's that working out for you?
+This project will unlock new ways to perform complex computation
+analyses through three steps:
+
+\begin{enumerate}
+\item \textbf{explore}: first, by exploring the problem domain (and
+  existing tools) of interest in conjunction with domain experts, do
+  determine the dimensions of the domain which could most benefit from
+  interactive, human-in-the-loop analysis
+\item \textbf{enliven}: using tools and techniques from live
+  programming, provide components (which fit into existing SWfMS)
+  which are amenable to live modification
+\item \textbf{empower}: creating appropriate interfaces (e.g.
+  domain-specific visual languages) to empower domain experts to
+  unlock their expertise in interactive computational simulation
+\end{enumerate}
+
+\textbf{Note to Henry:} here's where I'm up to. The stuff from here on
+in is just notes, mostly taken from John's initial email.
+
+% explore $\rightarrow$ enliven $\rightarrow$ empower
 
 % Want to bring the idea of "liveness" to HPC/big data software – allow
 % developers to get rapid, incremental update of target data process
@@ -251,14 +341,14 @@ Computational steering: how's that working out for you?
 % - evaluate effectiveness by apply to several exemplars e.g. particles,
 %   big data analysis, infoVis...
 
-\paragraph{Research significance}
+\paragraph*{Research significance}
 
 Big data software, HPC software becoming massively important
 Development of both still rudimentary, limited use of "liveness"
 concept in HPC/DSVLs to date (some in InfoVis). Many applications of
 our approach; a very enabling technology. Examples might include\ldots
 
-\paragraph{Advancing the knowledge base with innovation}
+\paragraph*{Advancing the knowledge base with innovation}
 
 \begin{itemize}
 \item very limited use of "liveness" concept to date in BI, HPC, etc ;
@@ -270,9 +360,8 @@ our approach; a very enabling technology. Examples might include\ldots
 \item running the concept of "liveness" through these: DSVLs <->
   HPC/Big Data code <-> InfoVis
 \end{itemize}
-\paragraph{Conceptual framework}
 
-explore \rightarrow enliven \rightarrow empower
+\paragraph*{Conceptual}
 
 Series of research problems to be solved:
 
@@ -286,18 +375,18 @@ Series of research problems to be solved:
 \item Evaluate effectivess on set of exemplars
 \end{enumerate}
 
-\paragraph{Feasibility, methodology and timeline}
+\paragraph*{Feasibility, methodology and timeline}
 
 % -set of steps
 % -set of prototype interations
 
 % Work per quarter
 
-\paragraph{Outcomes and impact}
+\paragraph*{Outcomes and impact}
 
 
 
-\paragraph{National benefit and strategic research priorities}
+\paragraph*{National benefit and strategic research priorities}
 
 
 
@@ -307,15 +396,15 @@ Series of research problems to be solved:
 
 \subsubsection*{RESEARCH ENVIRONMENT}
 
-\paragraph{Existing research environment}
+\paragraph*{Existing research environment}
 
 
 
-\paragraph{Developing research environment}
+\paragraph*{Developing research environment}
 
 
 
-\paragraph{Collaboration, communication and commercialization}
+\paragraph*{Collaboration, communication and commercialization}
 
 
 
